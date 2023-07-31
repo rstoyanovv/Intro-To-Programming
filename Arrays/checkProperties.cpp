@@ -99,4 +99,6 @@ int main()
     if (!property1(array, n) && !property2(array, n) && !property3(array, n)) {
         std::cout << "There is no fulfilled properties!" << std::endl;
     }
+
+    delete[] array;
 }
