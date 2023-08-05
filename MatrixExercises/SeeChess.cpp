@@ -1,19 +1,19 @@
 #include <iostream>
 
-void displayBoard(char** board, int size) {
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
+void displayBoard(char** board, unsigned size) {
+    for (size_t i = 0; i < size; ++i) {
+        for (size_t j = 0; j < size; ++j) {
             std::cout << board[i][j] << " ";
         }
         std::cout << std::endl;
     }
 }
 
-bool checkWin(char** board, int size, char player) {
-    for (int i = 0; i < size; ++i) {
+bool checkWin(char** board, unsigned size, char player) {
+    for (size_t i = 0; i < size; ++i) {
         bool rowWin = true;
         bool colWin = true;
-        for (int j = 0; j < size; ++j) {
+        for (size_t j = 0; j < size; ++j) {
             if (board[i][j] != player) {
                 rowWin = false;
             }
@@ -28,7 +28,7 @@ bool checkWin(char** board, int size, char player) {
 
     bool mainDiagonalWin = true;
     bool secondaryDiagonalWin = true;
-    for (int i = 0; i < size; ++i) {
+    for (size_t i = 0; i < size; ++i) {
         if (board[i][i] != player) {
             mainDiagonalWin = false;
         }
@@ -54,8 +54,8 @@ int main() {
         board[i] = new char[n];
     }
 
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
+    for (size_t i = 0; i < n; ++i) {
+        for (size_t j = 0; j < n; ++j) {
             board[i][j] = '-';
         }
     }
@@ -91,5 +91,10 @@ int main() {
     std::cout << "It's a draw!" << std::endl;
     displayBoard(board, n);
 
+    for(size_t i = 0; i < n; i++) {
+        delete board[i];
+    }
+    delete[] board;
+    
     return 0;
 }
