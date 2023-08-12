@@ -18,7 +18,6 @@ int maxMoves(const char* row, int startIndex) {
 			}
 
 			if (row[currentIndex] == 'y') {
-				//currentMove++;
 				while (row[currentIndex] != 'g') {
 					currentIndex++;
 					if (row[currentIndex] == '\0') {
