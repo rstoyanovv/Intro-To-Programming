@@ -27,13 +27,14 @@ int main()
     int n, m, k;
     std::cout << "Enter size of matrix: ";
     std::cin >> n >> m;
-    if (n < 3 || n > 16 || m < 3 || m > 32) {
-        throw std::exception("Invalid size!");
-    }
-    std::cout << std::endl;
 
     std::cout << "Enter row to delete:";
     std::cin >> k;
+    std::cout << std::endl;
+
+    if (n < 3 || n > 16 || m < 3 || m > 32 || k < 0) {
+        throw std::exception("Invalid size!");
+    }
     std::cout << std::endl;
 
     int** matrix = new int* [n];
